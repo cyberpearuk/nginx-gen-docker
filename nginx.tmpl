@@ -2,6 +2,8 @@
 
 {{ if (exists "/etc/nginx/common.d/http.conf") }}
 include /etc/nginx/common.d/http.conf;
+{{ else }}
+# include /etc/nginx/common.d/http.conf;
 {{ end }}
 
 {{ define "upstream" }}
@@ -297,6 +299,8 @@ server {
 	{{ end }}
 	{{ if (exists "/etc/nginx/common.d/server.conf") }}
 	include /etc/nginx/common.d/server.conf;
+	{{ else }}
+	# include /etc/nginx/common.d/server.conf;
 	{{ end }}
 	location / {
 		{{ if eq $proto "uwsgi" }}
@@ -316,6 +320,8 @@ server {
 		{{ end }}
 		{{ if (exists "/etc/nginx/common.d/location.conf") }}
 		include /etc/nginx/common.d/location.conf;
+		{{ else }}
+		# include /etc/nginx/common.d/location.conf;
 		{{ end }}
 		{{ if (exists (printf "/etc/nginx/vhost.d/%s_location" $host)) }}
 		include {{ printf "/etc/nginx/vhost.d/%s_location" $host}};
