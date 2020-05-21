@@ -25,3 +25,7 @@ explicit `/etc/nginx/vhost.d/{VIRTUAL_HOST}` file is defined.
 ### HTTP level config
 
 A file can be defined at `/etc/nginx/common.d/http.conf` which is included into http config. 
+
+## Maintainer
+
+This repository is maintained by [Black Pear Digital](https://www.blackpeardigital.co.uk).
